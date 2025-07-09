@@ -14,12 +14,12 @@ public class BookController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Book> saveBook(@RequestBody Book book){
-        return new ResponseEntity<>(BOOK_SERVICE.saveBook(book), HttpStatus.CREATED);
+    public ResponseEntity<Book> saveBook(@RequestBody BookDto bookDto){
+        return new ResponseEntity<>(BOOK_SERVICE.saveBook(bookDto), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Book> getBookById(@PathVariable Long id){
+    public ResponseEntity<BookDto> getBookById(@PathVariable Long id){
         return new ResponseEntity<>(BOOK_SERVICE.getBookById(id), HttpStatus.OK);
     }
 
