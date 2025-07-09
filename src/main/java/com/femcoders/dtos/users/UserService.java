@@ -10,9 +10,10 @@ public class UserService {
         this.USER_REPOSITORY = userRepository;
     }
 
-    public User getUserById(Long id){
-        return USER_REPOSITORY.findById(id)
+    public UserResponse getUserById(Long id){
+        User user = USER_REPOSITORY.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(String.format("User with id %d not found", id)));
+        return UserMapper.toDto(user);
     }
 
     public User saveUser(User user){
