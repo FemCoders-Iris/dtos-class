@@ -20,9 +20,8 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    String firstName;
-    @Column(nullable = false)
-    String lastName;
+    @Column(nullable = false, unique = true)
+    String name;
 
     @ManyToMany(mappedBy = "authors", cascade = CascadeType.ALL)
     List<Book> books;
